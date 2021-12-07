@@ -1,0 +1,11 @@
+<!--el ng-container sirve para no tener q usar un div y que eso ensucie el codigo-->
+<!-- <ng-container *ngFor="let movie of movies">
+    <app-card></app-card>
+</ng-container> -->
+
+
+<article class="movies-container">
+    <section *ngFor="let movie of movies" class="movies-item">
+        <app-card></app-card>
+    </section>
+</article>
