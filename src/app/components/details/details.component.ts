@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-details',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-
-  constructor() { }
+  movie: any;
+  constructor(private actRoute: ActivatedRoute, private heroesSrv: HeroesService) { 
+    this.actRoute.params.subscribe( params => {
+      this.movie = this.heroesSrv.getHeroe(params['id']);
+      console.log(this.movie);
+    })
+  }
 
   ngOnInit(): void {
   }

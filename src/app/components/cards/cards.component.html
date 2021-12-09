@@ -5,7 +5,14 @@
 
 
 <article class="movies-container">
-    <section *ngFor="let movie of movies" class="movies-item">
-        <app-card></app-card>
+    <section *ngFor="let movie of movies; let i = index" class="movies-item">
+        <div class="card" style="width: 100%;">
+            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.nombre | uppercase }}</h5>
+              <p class="card-text">{{ movie.bio }}</p>
+              <button [routerLink]="['/details', i]" (click)="navigate()" class="btn btn-primary">Ver detalle</button>
+            </div>
+        </div>
     </section>
 </article>

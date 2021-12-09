@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
+  
+  movies: any[] = []
 
-  movies:Number[] = [1,2,3,4,5,6,7,8,9,10]
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private heroesSrv: HeroesService) {
+    this.movies = this.heroesSrv.movies;
   }
 
+  ngOnInit(): void {}
+
+  navigate() {
+    console.log('click');
+  }
 }
