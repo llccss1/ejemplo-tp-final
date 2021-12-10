@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from 'src/app/services/heroes.service';
+import { HeroesService, Movie } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-cards',
@@ -8,17 +8,17 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class CardsComponent implements OnInit {
   
-  movies: any[] = []
+  movies: Movie[] = [];
 
   constructor(private heroesSrv: HeroesService) {
-    this.movies = this.heroesSrv.movies;
+    //this.movies = this.heroesSrv.movies;
+    this.heroesSrv.getHeroes().subscribe((movies) => {
+      console.log(movies);
+      this.movies = movies;
+    });
   }
 
   ngOnInit(): void {} 
-
-  actualizarMovies() {
-    this.movies = this.heroesSrv.filtered
-  }
 
   navigate() {
     console.log('click');

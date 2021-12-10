@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardsFilteredComponent } from './components/cards-filtered/cards-filtered.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: CardsComponent },
-  { path: 'filtered', component: CardsFilteredComponent },
+  { path: 'home', component: CardsComponent }, 
   { path: 'details', component: DetailsComponent },
   { path: 'details/:id', component: DetailsComponent },  
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

@@ -11,8 +11,8 @@ export class DetailsComponent implements OnInit {
   movie: any;
   constructor(private actRoute: ActivatedRoute, private heroesSrv: HeroesService) { 
     this.actRoute.params.subscribe( params => {
-      this.movie = this.heroesSrv.getHeroe(params['id']);
-      //console.log(this.movie);
+      //this.movie = this.heroesSrv.getHeroe(params['id']);
+      console.log(this.movie);
     })
   }
 

@@ -1,4 +1,5 @@
 <form (submit)="filter($event)" class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" [(ngModel)]="search">
-    <button [routerLink]="['/filtered']" routerLinkActive="router-link-active"  class="btn btn-outline-success" type="submit">Search</button>
+    <button routerLinkActive="router-link-active"  class="btn btn-outline-success me-2" type="submit">Search</button>
+    <button *ngIf="clear" (click)="onClear()" routerLinkActive="router-link-active"  class="btn btn-outline-danger" type="button">Clear</button>
 </form>
