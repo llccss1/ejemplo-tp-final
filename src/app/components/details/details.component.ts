@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute, private heroesSrv: HeroesService) { 
     this.actRoute.params.subscribe( params => {
       this.movie = this.heroesSrv.getHeroe(params['id']);
-      console.log(this.movie);
+      //console.log(this.movie);
     })
   }
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SearchfieldComponent } from './components/searchfield/searchfield.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { CardsFilteredComponent } from './components/cards-filtered/cards-filtered.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { CardsComponent } from './components/cards/cards.component';
     CardComponent,
     DetailsComponent,
     SearchfieldComponent,
-    CardsComponent
+    CardsComponent,
+    CardsFilteredComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

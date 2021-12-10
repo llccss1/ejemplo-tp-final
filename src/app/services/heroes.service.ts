@@ -63,9 +63,20 @@ export class HeroesService {
     },
   ];
 
+  filtered: any[] = [];
+
   constructor() { }
 
   getHeroe(id: number) {
     return this.movies[id];
+  }
+
+  filterHeroes(searchText: string) {    
+    this.filtered = this.movies.filter((movie) => movie.nombre.toLowerCase().includes(searchText.toLowerCase()) );
+    console.log(this.filtered);
+  }  
+  
+  getFiltered() {
+    return this.filtered;
   }
 }

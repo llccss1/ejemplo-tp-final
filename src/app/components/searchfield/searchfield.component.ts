@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-searchfield',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchfieldComponent implements OnInit {
 
-  constructor() { }
+  search: string = "";
+  constructor(private heroesSrv: HeroesService) { }
 
   ngOnInit(): void {
   }
 
+  filter($event:any) {
+    $event.preventDefault();
+    this.heroesSrv.filterHeroes(this.search.trim());    
+    this.search="";
+  }
+  
 }

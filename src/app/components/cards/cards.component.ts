@@ -14,9 +14,22 @@ export class CardsComponent implements OnInit {
     this.movies = this.heroesSrv.movies;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {} 
+
+  actualizarMovies() {
+    this.movies = this.heroesSrv.filtered
+  }
 
   navigate() {
     console.log('click');
   }
+
+  recibir($event: DatosHijo) {
+    console.log("recibido: ", $event)
+  }
+}
+
+interface DatosHijo {
+  message: string,
+  component: string
 }
