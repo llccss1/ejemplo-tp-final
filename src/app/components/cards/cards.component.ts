@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService, Movie } from 'src/app/services/heroes.service';
+import { Heroe, Movie } from 'src/app/models/api-models';
+import { HeroesService } from 'src/app/services/heroes.service';
 
 @Component({
   selector: 'app-cards',
@@ -8,13 +9,20 @@ import { HeroesService, Movie } from 'src/app/services/heroes.service';
 })
 export class CardsComponent implements OnInit {
   
-  movies: Movie[] = [];
+  //movies: Heroe[] | Movie[] = [];  
+  movies: Heroe[] = [];  
 
   constructor(private heroesSrv: HeroesService) {
     //this.movies = this.heroesSrv.movies;
-    this.heroesSrv.getHeroes().subscribe((movies) => {
-      console.log(movies);
-      this.movies = movies;
+    this.heroesSrv.getHeroes().subscribe((resp) => {
+        console.log("Respuesta del endpoint personajes resde el componente: ", resp)
+        this.movies = resp.data;
+      });
+    
+    
+    this.heroesSrv.getPeliculas().subscribe((resp: any) => {
+      console.log("Respuesta del endpoint peliculas resde el componente: ", resp)
+      
     });
   }
 
