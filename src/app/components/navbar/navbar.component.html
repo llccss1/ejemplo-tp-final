@@ -28,6 +28,8 @@
           </li>
         </ul>
         <app-searchfield></app-searchfield>
+        <button *ngIf="!logged" (click)="onLogin()" routerLinkActive="router-link-active"  class="btn btn-outline-primary me-2" type="submit">Login</button>
+        <button *ngIf="logged" (click)="onLogout()" routerLinkActive="router-link-active"  class="btn btn-outline-danger me-2" type="submit">Logout</button>
       </div>
     </div>
   </nav>

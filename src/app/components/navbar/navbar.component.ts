@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  logged = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onLogin() {
+    console.log(`onLogin`);
+    this.logged = true;
+    window.localStorage.setItem('logged', 'true');
+  }
+
+  onLogout() {
+    console.log(`onLogout`);
+    this.logged = false;
+    window.localStorage.removeItem('logged');
   }
 
 }
